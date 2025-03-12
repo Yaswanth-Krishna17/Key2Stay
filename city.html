@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+</head>
+<body>
+    <section id="city" class="CITY">
+        <div class="search-Box">
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="icon">🏨</span>
+                    <select id="location">
+                        <option value="">Select a location</option>
+                        <option value="DELHI">DELHI</option>
+                        <option value="BANGALORE">BANGALORE</option>
+                        <option value="HYDERABAD">HYDERABAD</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <span class="icon">📅</span>
+                    <input type="date" id="checkin">
+                    <input type="date" id="checkout">
+                </div>
+                <button onclick="searchHotels()">Search</button>
+            </div>
+        </div>
+
+        <h1>Select a City</h1>
+        <div class="row">
+            <div class="CITY-col">
+                <img src="Images/delhilogo.webp" alt="DELHI" width="300">
+                <button class="btn-23" onclick="redirectToPage1()">
+                    <span class="text">DELHI</span>
+                    <span aria-hidden="" class="marquee">DELHI</span>
+                  </button>
+            </div>
+            <div class="CITY-col">
+                <img src="Images/banglogo.webp" alt="BANGALORE" width="300">
+                <button class="btn-23" onclick="redirectToPage2()">
+                    <span class="text">BANGALORE</span>
+                    <span aria-hidden="" class="marquee">BAN</span>
+                  </button>
+                
+            </div>
+            <div class="CITY-col">
+                <img src="Images/hydlogo.webp" alt="Hyderabad" width="300">
+                <button class="btn-23" onclick="redirectToPage3()">
+                    <span class="text">Hyderabad</span>
+                    <span aria-hidden="" class="marquee">Hyd</span>
+                  </button>
+            </div>
+            <div class="CITY-col">
+                <img src="Images/chennailogo.webp" alt="Hyderabad" width="300">
+                <button class="btn-23" onclick="redirectToPage3()">
+                    <span class="text">CHENNAI</span>
+                    <span aria-hidden="" class="marquee">CHENNAI</span>
+                  </button>
+            </div>
+        </div>
+    </section>
+    <script>
+        function redirectToPage1() {
+            window.location.href = "delhi.html"; 
+        }
+        function redirectToPage2() {
+            window.location.href = "bangalore.html"; 
+        }
+        function redirectToPage3() {
+            window.location.href = "hyderabad.html"; 
+        }
+        function searchHotels() {
+    let location = document.getElementById("location").value;
+    let checkin = document.getElementById("checkin").value;
+    let checkout = document.getElementById("checkout").value;
+
+    if (!location) {
+        alert("Please select a location.");
+        return;
+    }
+
+    let pageMap = {
+        "DELHI": "delhi.html",
+        "BANGALORE": "bangalore.html",
+        "HYDERABAD": "hyderabad.html",
+    };
+
+    let destinationPage = pageMap[location];
+    
+    if (destinationPage) {
+        window.location.href = `${destinationPage}?checkin=${checkin}&checkout=${checkout}`;
+    } else {
+        alert("Page not found for the selected location.");
+    }
+}
+        </script>
+
+</body>
+</html>
