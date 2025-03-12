@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="register">
+    
+    <div class="register">
+        <nav>
+            <div class="nav-links2" id="navlinks2">
+                <ul>
+                    <li><a href="home.html">HOME<i class="fas fa-info-circle"></i></a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="contact.html">CONTACT<i class="fas fa-headset"></i></a></li> 
+                </ul>
+            </div>
+        </nav>
+        <h1>Register</h1>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="contact" placeholder="Enter Mobile Number/Email ID">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button class="register-btn"onclick="validateUserForRegister()">Register</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
