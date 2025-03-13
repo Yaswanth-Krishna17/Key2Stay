@@ -3,24 +3,8 @@ function validateUser() {
     const password = document.getElementById("password").value;
     if (mobile.length === 10 && !isNaN(mobile)) {
         if (password.length >= 6) { 
-            fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ contact: mobile, password: password })
-            })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = "city.html";
-                } else {
-                    alert("Invalid credentials. Please try again.");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("An error occurred. Please try again later.");
-            });
+            localStorage.setItem("userMobile", mobile);
+            window.location.href = "city.html";
         } else {
             alert("Password must be at least 6 characters long.");
         }
@@ -28,14 +12,13 @@ function validateUser() {
         alert("Please enter a valid 10-digit mobile number.");
     }
 }
-
-function validateUserForRegister() {
+function validateUserForRegister() { 
     const name = document.getElementById("name").value.trim();
     const contact = document.getElementById("contact").value.trim();
     const password = document.getElementById("password").value.trim();
-    
-    const mobileRegex = /^[0-9]{10}$/;  
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
+
+    const mobileRegex = /^[0-9]{10}$/;  // 10-digit mobile number
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Email format
 
     if (!name) {
         alert("Please enter a valid Name.");
@@ -56,26 +39,59 @@ function validateUserForRegister() {
         alert("Password must be at least 6 characters long.");
         return;
     }
+    if (localStorage.getItem("userData")) {
+        alert("User already registered! Redirecting to home.");
+        window.location.href = "city.html";
+        return;
+    }
+    localStorage.setItem("userData", JSON.stringify({ name, contact }));
+    alert("Registration successful!");
+    window.location.href = "home.html";
+}
+function searchHotels() {
+    let location = document.getElementById("location").value;
+    let checkin = document.getElementById("checkin").value;
+    let checkout = document.getElementById("checkout").value;
 
-    fetch('/api/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: name, contact: contact, password: password })
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("Registration successful!");
-            window.location.href = "home.html";
-        } else {
-            alert("Registration failed. Please try again.");
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred. Please try again later.");
-    });
+    if (!location) {
+        alert("Please select a location.");
+        return;
+    }
+
+    let pageMap = {
+        "DELHI": "delhi.html",
+        "BANGALORE": "bangalore.html",
+        "HYDERABAD": "hyderabad.html",
+    };
+
+    let destinationPage = pageMap[location];
+    
+    if (destinationPage) {
+        window.location.href = `${destinationPage}?checkin=${checkin}&checkout=${checkout}`;
+    } else {
+        alert("Page not found for the selected location.");
+    }
+}
+const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+    
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY) {
+                header.style.opacity = '0';
+            } else {
+                header.style.opacity = '1';
+            }
+            lastScrollY = window.scrollY;
+        });
+var navLinks=document.getElementById("navlinks")
+function showMenu() {
+    navLinks.style.right="0"
 }
 
 function hideMenu() {
