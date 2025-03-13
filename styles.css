@@ -769,7 +769,20 @@ input {
     border-radius: 10px;
     display: block;
     margin: 0 auto 10px;
+    transition: transform 0.3s ease; /* Added hover effect */
 }
+
+.HOTELS1-col:hover img {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #333; /* Adjusted color for better visibility */
+}
+
 
 h3 {
     text-align: center;
@@ -850,7 +863,20 @@ h3 {
     border-radius: 10px; 
     display: block;
     margin: 0 auto 10px; 
+    transition: transform 0.3s ease; /* Added hover effect */
 }
+
+.HOTELS2-col:hover img {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+    color: #333; /* Adjusted color for better visibility */
+}
+
 h3{
     text-align: center;
     font-weight: 600;
@@ -923,7 +949,20 @@ h3{
     border-radius: 10px; 
     display: block;
     margin: 0 auto 10px; 
+    transition: transform 0.3s ease; /* Added hover effect */
 }
+
+.HOTELS3-col:hover img {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+    color: #333; /* Adjusted color for better visibility */
+}
+
 h3{
     text-align: center;
     font-weight: 600;
