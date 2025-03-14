@@ -40,7 +40,7 @@
             </div>
             <div class="CITY-col">
                 <img src="Images/chennailogo.webp" alt="Hyderabad" width="300">
-                <button class="btn-23" onclick="redirectToPage3()">
+                <button class="btn-23" onclick="redirectToPage4()">
                     <span class="text">CHENNAI</span>
                     <span aria-hidden="" class="marquee">CHENNAI</span>
                   </button>
@@ -57,6 +57,9 @@
         function redirectToPage3() {
             window.location.href = "hyderabad.html"; 
         }
+        function redirectToPage4() {
+            window.location.href = "chennai.html"; 
+        }
         function searchHotels() {
     let location = document.getElementById("location").value;
     let checkin = document.getElementById("checkin").value;
@@ -71,6 +74,7 @@
         "DELHI": "delhi.html",
         "BANGALORE": "bangalore.html",
         "HYDERABAD": "hyderabad.html",
+        "CHENNAI": "chennai.html",
     };
 
     let destinationPage = pageMap[location];
