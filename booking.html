@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Your Stay</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 2.5rem; color: #4C6AFF;">Book Your Stay</h1>
+
+    </header>
+    <main>
+        <form id="booking-form">
+            <div>
+                <label for="adults" style="font-size: 1.2rem; color: #333;">Number of Adults:</label>
+
+                <input type="number" id="adults" name="adults" min="1" value="1" required>
+            </div>
+            <div>
+                <label for="children" style="font-size: 1.2rem; color: #333;">Number of Children:</label>
+
+                <input type="number" id="children" name="children" min="0" value="0">
+            </div>
+            <div>
+                <label for="checkin" style="font-size: 1.2rem; color: #333;">Check-in Date:</label>
+
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div>
+                <label for="checkout" style="font-size: 1.2rem; color: #333;">Check-out Date:</label>
+
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div>
+                <label for="rooms" style="font-size: 1.2rem; color: #333;">Number of Rooms:</label>
+
+                <input type="number" id="rooms" name="rooms" min="1" value="1" required>
+            </div>
+            <div>
+                <label for="room-type" style="font-size: 1.2rem; color: #333;">Room Type:</label>
+
+                <select id="room-type" name="room-type" required>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+            <button type="submit" style="background-color: #4C6AFF; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.2rem;">Book Now</button>
+
+        </form>
+        <div id="booking-message" style="display:none; font-size: 1.5rem; color: #4C6AFF;"></div>
+
+    </main>
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('booking-message').innerText = 'Your room is booked!';
+            document.getElementById('booking-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
