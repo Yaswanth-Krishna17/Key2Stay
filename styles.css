@@ -47,22 +47,22 @@ nav.fa{
 }
 .btn-12 {
     -ms-progress-appearance: 100%;
-  -webkit-tap-highlight-color: transparent;
-  appearance: button;
+    -webkit-tap-highlight-color: transparent;
+    appearance: button;
   background-color: #000;
   background-image: none;
-  color: #fff;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  margin: 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0;
   mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .btn-12:disabled {
@@ -169,13 +169,14 @@ nav.fa{
     }
 }
 
-/*   -----HOME----  */
+/* -----HOME----  */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 header {
     display: flex;
@@ -216,13 +217,15 @@ nav ul li a {
 
 .hero {
     height: 90vh;
-    background: url('hotel-banner.jpg') no-repeat center center/cover;
+    background: url('Images/hotel-banner.jpg') no-repeat center center/cover; /* Updated path for consistency */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    border-radius: 10px; /* Added border radius for a softer look */
 }
+
 
 .hero-content h1 {
     font-size: 42px;
@@ -274,7 +277,9 @@ nav ul li a {
     height: 150px;
     border-radius: 10px;
     transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
 }
+
 
 .dest-item:hover img {
     transform: scale(1.05);
@@ -490,57 +495,6 @@ footer {
     font-size: 50px;
     margin-bottom: 20px;
 }
-.search-Box{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    border: 3px solid #ffc107;
-    padding: 10px;
-    max-width: 800px;
-    margin: 20px auto;
-    gap: 10px;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    flex: 1;
-}
-
-.search-box select, .search-box input {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    width: 100%;
-    padding: 10px;
-}
-
-.search-container button {
-    background: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.search-container button:hover {
-    background: #0056b3;
-}
-
 .icon {
     font-size: 20px;
     display: flex;
@@ -709,11 +663,12 @@ input {
   }
 }
 
-/*  -----DEHLI   -----*/
+/*  -----CITIES   -----*/
 .HOTELS1 {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(Images/home-bg.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.3), rgba(4,9,30,0.3)), url(Images/home-bg.jpg);
+
     background-position: center;
     background-size: cover;
     position: relative;
@@ -755,7 +710,7 @@ input {
 .HOTELS1-col {
     flex: 1;
     max-width: 60%;
-    background: #fff3f3;
+    background: #c5d9f5;
     border-radius: 20px;
     padding: 20px;
     box-sizing: border-box;
@@ -769,18 +724,23 @@ input {
     border-radius: 10px;
     display: block;
     margin: 0 auto 10px;
-    transition: transform 0.3s ease; /* Added hover effect */
+    transition: transform 0.3s ease; 
+}
+.HOTELS1-col p{
+    color: #000;
+    font-size: 20px;
 }
 
 .HOTELS1-col:hover img {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: scale(1.05); 
 }
 
 h3 {
     text-align: center;
     font-weight: 600;
     margin: 10px 0;
-    color: #333; /* Adjusted color for better visibility */
+    font-size: 30px;
+    color: #333; 
 }
 
 
@@ -794,7 +754,6 @@ h3 {
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
 @media (max-width: 900px) {
     .row {
         flex-direction: column;
@@ -807,170 +766,6 @@ h3 {
     }
 }
 
-
-/*    ---- Bangalore   -----    */
-.HOTELS2{
-    min-height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(Images/home-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
-
-}
-.HOTELS2 h1{
-    font-size: 60px;
-}
-.HOTELS2 p{
-    color: #e2e6e7;
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 22px;
-    padding: 10px;
-}
-.HOTELS2 p1{
-    color: #7c8c98;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 22px;
-    padding: 10px;
-}
-.row{
-    width: 100%;
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.HOTELS2-col{
-    flex-basis: 31%;
-    background:#fff3f3;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    padding: 20px 12px;
-    box-sizing: border-box;
-    transition: 0.5s;
-}
-.HOTELS2-col img {
-    width: 300px;
-    max-width: 400px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px; 
-    display: block;
-    margin: 0 auto 10px; 
-    transition: transform 0.3s ease; /* Added hover effect */
-}
-
-.HOTELS2-col:hover img {
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-h3 {
-    text-align: center;
-    font-weight: 600;
-    margin: 10px;
-    color: #333; /* Adjusted color for better visibility */
-}
-
-h3{
-    text-align: center;
-    font-weight: 600;
-    margin: 10px;
-}
-.HOTELS2-col:hover{
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-}
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column; 
-    }
-    .HOTELS2-col {
-        flex-basis: 100%;
-    }
-}
-
-/*   -- hyd   ----*/
-.HOTELS3{
-    min-height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(Images/home-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
-
-}
- .HOTELS3 h1{
-    font-size: 62px;
-    font-weight: 600;
-}
-.HOTELS3 p{
-    color: #faf7f7;
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 22px;
-    padding: 10px;
-}
-.HOTELS3 p1{
-    color: #8facb3;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 22px;
-    padding: 10px;
-}
-.row{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.HOTELS3-col{
-    flex-basis: 31%;
-    background:#fff3f3;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    padding: 20px 12px;
-    box-sizing: border-box;
-    transition: 0.5s;
-}
-.HOTELS3-col img {
-    width: 300px;
-    max-width: 400px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px; 
-    display: block;
-    margin: 0 auto 10px; 
-    transition: transform 0.3s ease; /* Added hover effect */
-}
-
-.HOTELS3-col:hover img {
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
-h3 {
-    text-align: center;
-    font-weight: 600;
-    margin: 10px;
-    color: #333; /* Adjusted color for better visibility */
-}
-
-h3{
-    text-align: center;
-    font-weight: 600;
-    margin: 10px;
-}
-.HOTELS3-col:hover{
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-}
 @media (max-width: 768px) {
     .row {
         flex-direction: column; 
