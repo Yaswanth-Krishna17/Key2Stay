@@ -40,7 +40,7 @@ function validateUserForRegister() {
         return;
     }
     if (localStorage.getItem("userData")) {
-        alert("User already registered! Redirecting to home.");
+        alert("Thankyou for Registering! Redirecting to home.");
         window.location.href = "city.html";
         return;
     }
