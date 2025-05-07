@@ -1,51 +1,53 @@
-async function validateUser() {
+function validateUser() {
     const mobile = document.getElementById("mobileNumber").value;
     const password = document.getElementById("password").value;
-
-    const response = await fetch("http://localhost:5000/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ mobile, password })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-        alert("Login successful!");
-        localStorage.setItem("userMobile", data.user.mobile); // Store user details
-        window.location.href = "city.html"; // Redirect to next page
+    if (mobile.length === 10 && !isNaN(mobile)) {
+        if (password.length >= 6) { 
+            localStorage.setItem("userMobile", mobile);
+            window.location.href = "city.html";
+        } else {
+            alert("Password must be at least 6 characters long.");
+        }
     } else {
-        alert(data.message);
+        alert("Please enter a valid 10-digit mobile number.");
     }
 }
-
-
-async function validateUserForRegister() {
+function validateUserForRegister() { 
     const name = document.getElementById("name").value.trim();
     const contact = document.getElementById("contact").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (!name || contact.length !== 10 || isNaN(contact) || password.length < 6) {
-        alert("Please enter valid details.");
+    const mobileRegex = /^[0-9]{10}$/;  // 10-digit mobile number
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Email format
+
+    if (!name) {
+        alert("Please enter a valid Name.");
         return;
     }
 
-    const response = await fetch("http://localhost:5000/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, mobile: contact, password })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-        alert("Registration successful!");
-        window.location.href = "home.html";
-    } else {
-        alert(data.message);
+    if (!contact) {
+        alert("Contact field cannot be empty.");
+        return;
     }
-}
 
+    if (!(mobileRegex.test(contact) || emailRegex.test(contact))) {
+        alert("Enter a valid 10-digit mobile number or a valid email address.");
+        return;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+    if (localStorage.getItem("userData")) {
+        alert("User already registered! Redirecting to home.");
+        window.location.href = "city.html";
+        return;
+    }
+    localStorage.setItem("userData", JSON.stringify({ name, contact }));
+    alert("Registration successful!");
+    window.location.href = "home.html";
+}
 function searchHotels() {
     let location = document.getElementById("location").value;
     let checkin = document.getElementById("checkin").value;
